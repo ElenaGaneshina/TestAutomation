@@ -11,10 +11,12 @@ public class AnnotationTest {
 
     @BeforeSuite
     public void setSystemProperties(){
+
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
     }
     @AfterMethod
     public void  getTitle(){
+
         System.out.println(driver.getTitle());
     }
     @BeforeClass
@@ -31,6 +33,7 @@ public class AnnotationTest {
     }
     @AfterSuite
     public void quitDriver(){
+
         if(driver.toString().contains("null")) {  driver.quit(); }
     }
     @Test
