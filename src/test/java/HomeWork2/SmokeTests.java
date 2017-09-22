@@ -1,11 +1,13 @@
+package HomeWork2;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RegressionTests {
+public class SmokeTests {
     @Test
-    public void regressionTest1() {
+    public void simpleTest1() {
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://www.epam.com");
@@ -14,7 +16,7 @@ public class RegressionTests {
         driver.close();
     }
     @Test
-    public void regressionTest2() {
+    public void simpleTest2() {
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://www.epam.com");
@@ -23,7 +25,7 @@ public class RegressionTests {
         driver.close();
     }
     @Test
-    public void regressionTest3() {
+    public void simpleTest3() {
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://www.epam.com");
@@ -31,4 +33,5 @@ public class RegressionTests {
                 "EPAM | Software Product Development Services");
         driver.close();
     }
+
 }

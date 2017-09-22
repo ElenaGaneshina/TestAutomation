@@ -1,3 +1,7 @@
+package Lessons;
+
+import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
     private WebDriver driver;
+    private IndexPage indexPage;
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
@@ -22,7 +27,7 @@ public class LoginTest {
         driver.manage().window().maximize();
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
 
-        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage = PageFactory.initElements(driver, IndexPage.class);
 
         indexPage.login("epam", "1234");
 

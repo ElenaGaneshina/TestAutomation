@@ -3,8 +3,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="Regression">
         <classes>
-            <class name="RegressionTests"/>
-            <class name="SmokeAndRegressionTests"/>
+            <class name="HomeWork2.RegressionTests"/>
+            <class name="HomeWork2.SmokeAndRegressionTests"/>
         </classes>
     </test>
 </suite>

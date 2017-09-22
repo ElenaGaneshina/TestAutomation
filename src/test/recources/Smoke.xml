@@ -2,8 +2,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="Smoke" >
     <classes>
-        <class name="SmokeTests" />
-        <class name="SmokeAndRegressionTests"/>
+        <class name="HomeWork2.SmokeTests" />
+        <class name="HomeWork2.SmokeAndRegressionTests"/>
     </classes>
     </test>
 </suite>
