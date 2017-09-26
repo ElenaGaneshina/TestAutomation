@@ -26,7 +26,6 @@ public class IndexPage {
     private ElementsCollection benefitTexts;
 
   //Methods
-
     public void checkContainsElements(){
         mainTitle.should(visible);
         mainText.should(exist);

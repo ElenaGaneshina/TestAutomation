@@ -17,7 +17,7 @@ public class LeftSection {
     @FindBy(css = ".sub>li>a")
     private ElementsCollection serviceLeftMenuElements;
 
-    public void checkLeftServiceMenu(){
+    public void checkLeftServiceMenu() {
         leftSectionItems.findBy(text("Service")).click();
         serviceLeftMenuElements.shouldHave(CollectionCondition.texts(
                 ServiceMenu.SUPPORT.serviceItem,

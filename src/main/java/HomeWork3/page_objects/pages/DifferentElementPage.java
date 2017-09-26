@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class DifferentElementPage {
     @FindBy(css = ".label-checkbox")
@@ -30,8 +31,8 @@ public class DifferentElementPage {
     @FindBy(css = "#mCSB_2")
     private SelenideElement rightSection;
 
-    @FindBy(css = ".panel-body-list.logs>li")
-    private ElementsCollection log;
+//    @FindBy(css = ".panel-body-list.logs>li")
+//    private ElementsCollection log;
 
     public void checkContainsElements() {
         checkBoxes.shouldHaveSize(4);
@@ -44,8 +45,12 @@ public class DifferentElementPage {
     }
 
     public void selectAndAssertCheckbox(String checkBoxName) {
-        checkBoxes.find(text(checkBoxName)).click();
-        checkBoxes.find(text(checkBoxName)).find("input").shouldBe(checked);
+        if (checkBoxes.find(text(checkBoxName)).find("input").isSelected()) {
+            System.out.println("checkBox " + checkBoxName + " was selected before test");
+        } else {
+            checkBoxes.find(text(checkBoxName)).click();
+            checkBoxes.find(text(checkBoxName)).find("input").shouldBe(checked);
+        }
     }
 
     public void selectRadioButton(String radioBtn) {
@@ -56,9 +61,8 @@ public class DifferentElementPage {
         dropDownList.selectOption(ddlValue);
     }
 
-    public void checkLog (String logValue) {
-        log.contains(logValue);
-
+    public void checkLog(String logValue) {
+        $$(".panel-body-list.logs>li").contains(logValue);
     }
 
     public void unselectAndAssertCheckbox(String checkBoxName) {

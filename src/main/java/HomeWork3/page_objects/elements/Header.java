@@ -17,17 +17,17 @@ public class Header {
     private ElementsCollection headerItems;
 
     //Login
-    @FindBy(css= ".fa-user")
+    @FindBy(css = ".fa-user")
     private SelenideElement userIcon;
 
     @FindBy(css = "#Login")
-    private  SelenideElement username;
+    private SelenideElement username;
 
     @FindBy(css = "#Password")
-    private  SelenideElement password;
+    private SelenideElement password;
 
     @FindBy(css = ".fa-sign-in")
-    private  SelenideElement submit;
+    private SelenideElement submit;
 
     @FindBy(css = ".profile-photo")
     private SelenideElement displayedName;
@@ -36,41 +36,41 @@ public class Header {
     @FindBy(css = "ul[class=dropdown-menu]>li")
     private ElementsCollection serviceMenuElements;
 
-
-
     //Methods
-    public void login(String user, String pass){
+    public void login(String user, String pass) {
         userIcon.click();
         username.setValue(user);
         password.sendKeys(pass);
         submit.click();
     }
-    public  void  openDifferentElementsPage(){
+
+    public void openDifferentElementsPage() {
         headerItems.findBy(text(MainMenu.SERVICE.menuItem)).click();
         serviceMenuElements.findBy(text(ServiceMenu.DIFFERENT_ELEMENTS.serviceItem)).click();
-            }
-    public  void  openDatesPage(){
+    }
+
+    public void openDatesPage() {
         headerItems.findBy(text(MainMenu.SERVICE.menuItem)).click();
         serviceMenuElements.findBy(text(ServiceMenu.DATES.serviceItem)).click();
     }
 
-    public void checkServiceMenu(){
+    public void checkServiceMenu() {
         headerItems.findBy(text(MainMenu.SERVICE.menuItem)).click();
         serviceMenuElements.shouldHave(
-               texts(
-                       ServiceMenu.SUPPORT.serviceItem,
-                       ServiceMenu.DATES.serviceItem,
-                       ServiceMenu.COMPLEX_TABLE.serviceItem,
-                       ServiceMenu.SIMPLE_TABLE.serviceItem,
-                       ServiceMenu.TABLE_WITH_PAGES.serviceItem,
-                       ServiceMenu.DIFFERENT_ELEMENTS.serviceItem
-               )
-       );
+                texts(
+                        ServiceMenu.SUPPORT.serviceItem,
+                        ServiceMenu.DATES.serviceItem,
+                        ServiceMenu.COMPLEX_TABLE.serviceItem,
+                        ServiceMenu.SIMPLE_TABLE.serviceItem,
+                        ServiceMenu.TABLE_WITH_PAGES.serviceItem,
+                        ServiceMenu.DIFFERENT_ELEMENTS.serviceItem
+                )
+        );
 
     }
 
     //Asserts
-    public void checkDisplayedUserName(){
+    public void checkDisplayedUserName() {
         displayedName.shouldBe(text(InputData.USER_NAME.inData));
     }
 }
