@@ -13,14 +13,14 @@ public class AnnotationTest {
 
     @BeforeSuite
     public void setSystemProperties(){
-
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
     }
+
     @AfterMethod
     public void  getTitle(){
-
         System.out.println(driver.getTitle());
     }
+
     @BeforeClass
     public void initDriver(){
        driver = new ChromeDriver();}
@@ -33,16 +33,16 @@ public class AnnotationTest {
     public void tearDown(){
         driver.close();
     }
+
     @AfterSuite
     public void quitDriver(){
-
         if(driver.toString().contains("null")) {  driver.quit(); }
     }
+
     @Test
     public void simpleTest1() {
         driver.navigate().to("https://www.epam.com");
         Assert.assertEquals(driver.getTitle(),
                 "EPAM | Software Product Development Services");
-
     }
 }
