@@ -12,31 +12,35 @@ public class AnnotationTest {
     private WebDriver driver;
 
     @BeforeSuite
-    public void setSystemProperties(){
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+    public void setSystemProperties() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
     }
 
     @AfterMethod
-    public void  getTitle(){
+    public void getTitle() {
         System.out.println(driver.getTitle());
     }
 
     @BeforeClass
-    public void initDriver(){
-       driver = new ChromeDriver();}
+    public void initDriver() {
+        driver = new ChromeDriver();
+    }
 
     @BeforeTest
-    public void checkTime(){
-        System.out.println(System.currentTimeMillis());}
+    public void checkTime() {
+        System.out.println(System.currentTimeMillis());
+    }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 
     @AfterSuite
-    public void quitDriver(){
-        if(driver.toString().contains("null")) {  driver.quit(); }
+    public void quitDriver() {
+        if (driver.toString().contains("null")) {
+            driver.quit();
+        }
     }
 
     @Test
